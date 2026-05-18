@@ -156,8 +156,8 @@ export default function Header() {
                           <NavLink to={"/signup"}>
                             <button
                               className=" md:flex  bg-green-600
-                            text-white rounded h-10 hover:bg-green-500
-                            hover:cursor-pointer w-24 px-4 py-2"
+                            text-white rounded text-sm h-10 hover:bg-green-500
+                            hover:cursor-pointer w-22 px-4 py-2"
                             >
                               SIGN UP
                             </button>
@@ -228,7 +228,7 @@ export default function Header() {
           {location.pathname !== "/about" && (
             <>
               <div className="flex  max-w-md p-2">
-                <NavLink>
+                <NavLink to={"/login"}>
                   <li className=" md:inline lg:hidden list-none bg-green-600 text-white  hover:bg-gray-300 hover:cursor-pointer p-2 rounded-xl">
                     LOG IN
                   </li>
