@@ -153,21 +153,30 @@ export default function Header() {
                     >
                       {media.map((index, key) => (
                         <>
-                          <NavLink to={"/signup"}>
+                          {user ? (
+                            // لما يكون logged in
                             <button
-                              className=" md:flex  bg-green-600
-                            text-white rounded text-sm h-10 hover:bg-green-500
-                            hover:cursor-pointer w-22 px-4 py-2"
+                              onClick={handleLogout}
+                              className="md:flex bg-red-600 text-white rounded text-sm h-10 hover:bg-red-500 w-22 px-4 py-2"
                             >
-                              SIGN UP
+                              Log out
                             </button>
-                          </NavLink>
-                          <div className="w-full h-px bg-gray-300"></div>
-                          <NavLink to={"/login"}>
-                            <li className="flex font-bold hover:bg-gray-300 hover:cursor-pointer  rounded">
-                              LOG IN
-                            </li>
-                          </NavLink>{" "}
+                          ) : (
+                            // لما يكون not logged in
+                            <>
+                              <NavLink to="/signup">
+                                <button className="md:flex bg-green-600 text-white rounded text-sm h-10 hover:bg-green-500 w-22 px-4 py-2">
+                                  SIGN UP
+                                </button>
+                              </NavLink>
+
+                              <NavLink to="/login">
+                                <li className="flex font-bold hover:bg-gray-300 hover:cursor-pointer rounded">
+                                  LOG IN
+                                </li>
+                              </NavLink>
+                            </>
+                          )}
                           <div className="w-full h-px bg-gray-300"></div>
                           <NavLink key={key}>
                             <li className="flex font-bold items-center gap-2 hover:bg-gray-100 cursor-pointer rounded">
@@ -229,8 +238,11 @@ export default function Header() {
             <>
               <div className="flex  max-w-md p-2">
                 <NavLink to={"/login"}>
-                  <li className=" md:inline lg:hidden list-none bg-green-600 text-white  hover:bg-gray-300 hover:cursor-pointer p-2 rounded-xl">
-                    LOG IN
+                  <li
+                    hidden={user}
+                    className=" md:inline lg:hidden list-none bg-green-600 text-white  hover:bg-gray-300 hover:cursor-pointer p-2 rounded-xl"
+                  >
+                    Log in
                   </li>
                 </NavLink>
 
