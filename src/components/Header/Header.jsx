@@ -153,15 +153,17 @@ export default function Header() {
                     >
                       {media.map((index, key) => (
                         <>
-                          <button
-                            className=" md:flex  bg-green-600
-            text-white rounded h-10 hover:bg-green-500
-            hover:cursor-pointer w-24 px-4 py-2"
-                          >
-                            SIGN UP
-                          </button>{" "}
+                          <NavLink to={"/signup"}>
+                            <button
+                              className=" md:flex  bg-green-600
+                            text-white rounded h-10 hover:bg-green-500
+                            hover:cursor-pointer w-24 px-4 py-2"
+                            >
+                              SIGN UP
+                            </button>
+                          </NavLink>
                           <div className="w-full h-px bg-gray-300"></div>
-                          <NavLink>
+                          <NavLink to={"/login"}>
                             <li className="flex font-bold hover:bg-gray-300 hover:cursor-pointer  rounded">
                               LOG IN
                             </li>
